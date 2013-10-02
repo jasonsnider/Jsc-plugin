@@ -10,7 +10,8 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 App::import(
-	'Vendor', 'HTMLPurifier', 
+	'Vendor', 
+    'HTMLPurifier', 
 	array(
 		'file' => 'HtmlPurifier' . DS . 'library' . DS . 'HTMLPurifier.auto.php'
 	)
@@ -71,37 +72,6 @@ class Scrub {
 
         //Auto pargraphs on line break, this is the paragragh version of nl2br
         $config->set('AutoFormat.AutoParagraph', true);
-
-        //Strips useless jiberish, typically this is cruft left over from WYSIWYG formatting
-        $config->set('AutoFormat.RemoveEmpty.RemoveNbsp', true);
-        //Remove empty conflicts with iFrames, I'd like to find a fix for this
-        //$config->set('AutoFormat.RemoveEmpty', true);
-        $config->set('AutoFormat.RemoveSpansWithoutAttributes', true);
-
-        //Autolink text based links into html tags
-        $config->set('AutoFormat.Linkify', true);
-
-        //Allow iframes for YouTube and such
-        $config->set('HTML.SafeIframe', true);
-        $config->set('URI.SafeIframeRegexp', "%^https://(www.youtube.com/embed/|player.vimeo.com/video/)%");
-
-        return $HTMLPurifier->purify($value, $config);
-    }
-
-    /**
-     * Same as htmlMedia but without AutoFormat.AutoParagraph
-     * @param string $value
-     * @return string
-     */
-    public static function htmlMarkdown($value) {
-        $HTMLPurifier = new HTMLPurifier();
-
-        $config = HTMLPurifier_Config::createDefault();
-
-        //Standard scrubbing and repair
-        $config->set('HTML.TidyLevel', 'heavy');
-        $config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
-        $config->set('Core.Encoding', Configure::read('App.encoding'));
 
         //Strips useless jiberish, typically this is cruft left over from WYSIWYG formatting
         $config->set('AutoFormat.RemoveEmpty.RemoveNbsp', true);
@@ -196,37 +166,6 @@ class Scrub {
         $purify = strip_tags($purify);
 
         return $purify;
-    }
-
-    /**
-     * Purifies, creates html and fixes broken HTML. Does not allow image or anchor tags. Written for JobSearch plugin
-     * @param string $value
-     * @return string
-     */
-    public static function htmlJobFeedClean($value) {
-        $HTMLPurifier = new HTMLPurifier();
-
-        $config = HTMLPurifier_Config::createDefault();
-
-        //Standard scrubbing and repair
-        $config->set('HTML.TidyLevel', 'heavy');
-        $config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
-        $config->set('Core.Encoding', Configure::read('App.encoding'));
-
-        //Auto pargraphs on line break, this is the paragragh version of nl2br
-        $config->set('AutoFormat.AutoParagraph', true);
-
-        //Strips useless jiberish, typically this is cruft left over from WYSIWYG formatting
-        $config->set('AutoFormat.RemoveEmpty.RemoveNbsp', true);
-        $config->set('AutoFormat.RemoveEmpty', true);
-        $config->set('AutoFormat.RemoveSpansWithoutAttributes', true);
-
-        //Autolink text based links into html tags
-        $config->set('AutoFormat.Linkify', true);
-
-        $config->set('HTML.ForbiddenAttributes', array('img', 'image', 'a'));
-
-        return $HTMLPurifier->purify($value, $config);
     }
 
     /**
