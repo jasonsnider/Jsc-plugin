@@ -5,23 +5,14 @@
         <h3>Sections</h3>
         <ul>
             <li><?php echo $this->Html->link('Users', '/users'); ?></li>
-        </ul>
-
-        <?php if ($this->Session->check('Auth.User.employee')): ?>
-            <h3>Admin Sections</h3>
-            <ul>
-                <li><?php echo $this->Html->link('Users', '/admin/users'); ?></li>
-                <li><?php echo $this->Html->link('UserGroups', '/admin/user_groups'); ?></li>
-            </ul>
-        <?php endif; ?>
-            
-        <ul>
             <li><?php echo $this->Html->link('Contents', '/contents'); ?></li>
         </ul>
 
         <?php if ($this->Session->check('Auth.User.employee')): ?>
             <h3>Admin Sections</h3>
             <ul>
+                <li><?php echo $this->Html->link('Users', '/admin/users'); ?></li>
+                <li><?php echo $this->Html->link('UserGroups', '/admin/users/user_groups'); ?></li>
                 <li><?php echo $this->Html->link('Contents', '/admin/contents'); ?></li>
             </ul>
         <?php endif; ?>
@@ -73,6 +64,9 @@
         
     <?php else: ?>
         <ul>
+            <li><?php echo $this->Html->link('Pages', '/contents/pages'); ?></li>
+            <li><?php echo $this->Html->link('Posts', '/contents/posts'); ?></li>
+            <li><?php echo $this->Html->link('All Content', '/contents'); ?></li>
             <li><?php echo $this->Html->link('Login', '/users/users/login'); ?></li>
             <li><?php echo $this->Html->link('New Account', '/users/users/create'); ?></li>
         </ul>
