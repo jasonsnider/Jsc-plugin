@@ -15,6 +15,17 @@
             </ul>
         <?php endif; ?>
             
+        <ul>
+            <li><?php echo $this->Html->link('Contents', '/contents'); ?></li>
+        </ul>
+
+        <?php if ($this->Session->check('Auth.User.employee')): ?>
+            <h3>Admin Sections</h3>
+            <ul>
+                <li><?php echo $this->Html->link('Contents', '/admin/contents'); ?></li>
+            </ul>
+        <?php endif; ?>
+            
         <?php
         //Returns all plugins in the system, if that plugin has a controller and that follows the CakePHP standard of 
         //naming, it will try to link to the index view of that controller.
@@ -57,13 +68,13 @@
     
         <h3>Actions</h3>
         <ul>
-            <li><?php echo $this->Html->link('Log Out', '/users/logout'); ?></li>
+            <li><?php echo $this->Html->link('Log Out', '/users/users/logout'); ?></li>
         </ul>
         
     <?php else: ?>
         <ul>
-            <li><?php echo $this->Html->link('Login', '/users/login'); ?></li>
-            <li><?php echo $this->Html->link('New Account', '/users/create'); ?></li>
+            <li><?php echo $this->Html->link('Login', '/users/users/login'); ?></li>
+            <li><?php echo $this->Html->link('New Account', '/users/users/create'); ?></li>
         </ul>
     <?php endif; ?>
 </div>
