@@ -61,10 +61,19 @@ class LoggableBehavior extends ModelBehavior {
      * @param $id the 'forced' id
 	 * @return void
      */
-    protected function setUserId($id = false) {
+    public function setUserId($id = false) {
         if ($id) {
             $this->__userId = $id;
         }
     }
 
+    /**
+     * Retrives the userId
+     * @param $id the 'forced' id
+	 * @return void
+     */
+    public function getUserId() {
+        return $this->__userId = $id;
+    }
+    
 }
