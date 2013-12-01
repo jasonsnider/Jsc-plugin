@@ -25,7 +25,7 @@ class ScrubableBehavior extends ModelBehavior {
      * @param array $settings
      * @access public
      */
-    public function setup(&$model, $settings = array()) {
+    public function setup(Model $model, $settings = array()) {
         if (!is_array($settings)) {
             $settings = array();
         }
