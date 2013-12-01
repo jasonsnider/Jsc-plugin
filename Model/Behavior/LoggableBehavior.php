@@ -45,7 +45,7 @@ class LoggableBehavior extends ModelBehavior {
      * @param object $model
      * @return boolean 
      */
-    public function beforeSave(Model $model) {
+    public function beforeSave(Model $model, $options = array()) {
 
         if (!isset($model->data[$model->name]['id'])) {
             $model->data[$model->name]['created_user_id'] = $this->__userId;
@@ -73,7 +73,7 @@ class LoggableBehavior extends ModelBehavior {
 	 * @return void
      */
     public function getUserId() {
-        return $this->__userId = $id;
+        return $this->__userId;
     }
     
 }
