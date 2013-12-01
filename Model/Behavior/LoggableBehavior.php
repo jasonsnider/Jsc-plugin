@@ -30,7 +30,7 @@ class LoggableBehavior extends ModelBehavior {
      * @param object $model 
      * @return void
      */
-    function setup(&$model) {
+    function setup(Model $model) {
 		
 		$userId = CakeSession::read('Auth.User.id');
 		

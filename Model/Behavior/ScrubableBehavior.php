@@ -38,7 +38,7 @@ class ScrubableBehavior extends ModelBehavior {
      * @param object $model
      * @access public
      */
-    public function beforeSave(&$model) {
+    public function beforeSave(Model $model) {
 
         //Determine which filters are requested and against what fields
         //Then build a filter map
