@@ -40,8 +40,9 @@ class StringHash {
 
         $hash = Security::hash($preHash, 'sha512', true);
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $hash = Security::hash($hash, 'sha512', true);
+            $hash = Security::hash($hash, 'whirlpool', true);
         }
 
         return $hash;
