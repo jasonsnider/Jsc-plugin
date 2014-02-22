@@ -1,5 +1,6 @@
 <?php
 /**
+ * This behavior provides "Cake Magic" type of access to htmlpurifier
  * Copyright 2011-2013, Jason D Snider (https://jasonsnider.com)
  *
  * Licensed under The MIT License
@@ -36,6 +37,7 @@ class ScrubableBehavior extends ModelBehavior {
     /**
      * Pre-save data manipulation
      * @param object $model
+     * @param array $options
      * @access public
      */
     public function beforeSave(Model $model, $options = array()) {

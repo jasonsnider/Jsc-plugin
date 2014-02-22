@@ -1,6 +1,6 @@
 <?php
 /**
- * Adds user tracking to created/modified data
+ * Automatically sets the values of the created and modified user ids
  *
  * Parbake (http://jasonsnider.com/parbake)
  * Copyright 2012 - 2013, Jason D Snider. (http://jasonsnider.com)
@@ -13,7 +13,7 @@
  */
 
 /**
- * Adds user tracking to created/modified data
+ * Automatically sets the values of the created and modified user ids
  * @author Jason D Snider <jason@jasonsnider.com>
  * @package Utilities
  */
@@ -26,8 +26,9 @@ class LoggableBehavior extends ModelBehavior {
     private $__userId = '00000000-0000-0000-0000-000000000000';
 
     /**
-     * Initializes the behavior
+     * Read the id of the logged in user into an instance variable
      * @param object $model 
+     * @param array $options
      * @return void
      */
     function setup(Model $model, $options = array()) {
@@ -43,6 +44,7 @@ class LoggableBehavior extends ModelBehavior {
     /**
      * Adds user tracking to $model->data
      * @param object $model
+     * @param array $options
      * @return boolean 
      */
     public function beforeSave(Model $model, $options = array()) {
