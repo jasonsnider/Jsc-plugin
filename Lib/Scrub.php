@@ -180,9 +180,12 @@ class Scrub {
         $phoneNumber = preg_replace('/[^\d]/', '', $phoneNumber);
 
         //If the number has a preceeding 1, strip it.
-        if (strlen($phoneNumber > 10) && strpos($phoneNumber, '1') == 0) {
+        if (strlen($phoneNumber > 10) && strpos($phoneNumber, '1') == false) {
             $phoneNumber = preg_replace('/^1/', '', $phoneNumber);
-        }
+        }elseif(strlen($phoneNumber > 10)){
+			//Strip anything after the tenth integer
+			$phoneNumber = substr($phoneNumber,0,10);
+		}
 
         return $phoneNumber;
     }
