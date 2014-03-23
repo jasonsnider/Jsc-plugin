@@ -96,5 +96,69 @@ class SeoBehaviorTest extends CakeTestCase {
 
         $this->assertEquals($scrubed, $expected);
     }
+	
+    /**
+     * Passes if special chars are removed
+     */
+    public function testPhoneNumberStripsCommonFormats() {
 
+        $input = '614-865-5309';
+		$input1 = '(614)865-5309';
+		$input2 = '(614) 865-5309';
+		$input3 = '614.865.5309';
+		
+        $expected = '6148655309';
+
+        $scrubed = Scrub::phoneNumber($input);
+        $this->assertEquals($scrubed, $expected);
+		
+        $scrubed1 = Scrub::phoneNumber($input1);
+        $this->assertEquals($scrubed1, $expected);
+		
+        $scrubed2 = Scrub::phoneNumber($input2);
+        $this->assertEquals($scrubed2, $expected);
+		
+        $scrubed3 = Scrub::phoneNumber($input3);
+        $this->assertEquals($scrubed3, $expected);
+    }
+	
+    /**
+     * Passes if a 10 digit integer is returned that is not prefixed with a 1 is returned
+     */
+    public function testPhoneNumberStripsPreceedingOnes() {
+
+        $input = '16148655309';
+        $expected = '6148655309';
+
+        $scrubed = Scrub::phoneNumber($input);
+        $this->assertEquals($scrubed, $expected);
+		
+    }
+	
+    /**
+     * Passes if a 10 digit integer is returned
+     */
+    public function testPhoneNumberAllowsOnlyTheFirstTenIntegers() {
+
+        $input = '61486553090';
+        $expected = '6148655309';
+
+        $scrubed = Scrub::phoneNumber($input);
+        $this->assertEquals($scrubed, $expected);
+		
+    }
+	
+    /**
+     * Passes if a lower case string is returned
+     */
+    public function testLower() {
+
+        $input = 'Hello World';
+        $expected = 'hello world';
+
+        $scrubed = Scrub::lower($input);
+        $this->assertEquals($scrubed, $expected);
+		
+    }
+	
 }
