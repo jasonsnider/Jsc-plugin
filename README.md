@@ -1,6 +1,6 @@
 # CakePHP Utilities Plugin
 
-Provides some core utilities for The Parbake Project.
+Provides some core utilities for JSC.
 
 Dependencies 
 

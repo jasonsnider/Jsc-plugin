@@ -1,7 +1,7 @@
 <?php
 /**
 */
-//Call Parbake's AllTestCase
+//Call JSC's AllTestCase
 require_once ROOT . DS . APP_DIR . DS . 'Test' . DS . 'Case' . DS . 'AllTestCase.php';
 
 /**

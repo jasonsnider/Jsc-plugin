@@ -2,7 +2,7 @@
 /**
  * Automatically sets the values of the created and modified user ids
  *
- * Parbake (http://jasonsnider.com/parbake)
+ * JSC (http://jasonsnider.com/jsc)
  * Copyright 2012 - 2013, Jason D Snider. (http://jasonsnider.com)
  *
  * Licensed under The MIT License

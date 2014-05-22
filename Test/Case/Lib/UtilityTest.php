@@ -3,7 +3,7 @@
 /**
  * Provides unit tests for the utility library
  * 
- * Parbake (http://jasonsnider.com/parbake)
+ * JSC (http://jasonsnider.com/jsc)
  * Copyright 2012, Jason D Snider. (http://jasonsnider.com)
  *
  * Licensed under The MIT License
