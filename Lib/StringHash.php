@@ -12,7 +12,7 @@
  * @link http://jasonsnider.com
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @author Jason D Snider <jason@jasonsnider.com>
- * @package Utilities
+ * @package Jsc
  */
 App::uses('Security', 'Utility');
 App::uses('String', 'Utility');
@@ -21,7 +21,7 @@ App::uses('String', 'Utility');
  * A library for hashing strings
  * 
  * @author Jason D Snider <jason@jasonsnider.com>
- * @package Utilities
+ * @package Jsc
  */
 class StringHash {
 

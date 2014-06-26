@@ -19,7 +19,7 @@ App::import(
 
 /**
  * Provides filters for user inputs
- * @package Utilities
+ * @package Jsc
  * @author Jason D Snider <jason@jasonsnider.com>
  */
 class Scrub {

@@ -2,7 +2,7 @@
 /**
  * Application Controller
  */
-App::uses('AppController', 'Controller');
+App::uses('Controller', 'Controller');
 
 /**
  * Application Controller
@@ -14,6 +14,7 @@ App::uses('AppController', 'Controller');
  * @author Jason D Snider <jason@jasonsnider.com>
  * @package Jsc
  */
+
 class JscAppController extends AppController {
 
 /**
@@ -44,6 +45,7 @@ class JscAppController extends AppController {
                 )
             )
         ),
+		'Contents.Meta',
         'Users.Authorize',
         'Security',
         'Session'

@@ -6,7 +6,7 @@ require_once ROOT . DS . APP_DIR . DS . 'Test' . DS . 'Case' . DS . 'AllTestCase
 
 /**
  */
-class AllUtilitiesTest extends AllTestCase {
+class AllJscTest extends AllTestCase {
 
 	/**
 	 * Assemble Test Suite
@@ -15,7 +15,7 @@ class AllUtilitiesTest extends AllTestCase {
 	 */
 	public static function suite() {
 		$suite = new self;
-		$files = $suite->getTestFiles('Utilities');
+		$files = $suite->getTestFiles('Jsc');
 		$suite->addTestFiles($files);
 		
 		return $suite;

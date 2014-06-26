@@ -13,10 +13,10 @@
  * @link http://jasonsnider.com
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @author Jason D Snider <jason@jasonsnider.com>
- * @package Utilities
+ * @package Jsc
  */
-App::uses('Random', 'Utilities.Lib');
-App::uses('StringHash', 'Utilities.Lib');
+App::uses('Random', 'Jsc.Lib');
+App::uses('StringHash', 'Jsc.Lib');
 
 /**
  * Provides unit tests for the utility library

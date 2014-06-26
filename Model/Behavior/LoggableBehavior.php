@@ -15,7 +15,7 @@
 /**
  * Automatically sets the values of the created and modified user ids
  * @author Jason D Snider <jason@jasonsnider.com>
- * @package Utilities
+ * @package Jsc
  */
 class LoggableBehavior extends ModelBehavior {
 

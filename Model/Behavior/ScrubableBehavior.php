@@ -10,12 +10,12 @@
  * @link https://jasonsnider.com
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-App::uses('Scrub', 'Utilities.Lib');
+App::uses('Scrub', 'Jsc.Lib');
 App::uses('Sanitize', 'Utility');
 
 /**
  * This behavior provides "Cake Magic" type of access to htmlpurifier
- * @package Utilities
+ * @package Jsc
  * @author Jason D Snider <root@jasonsnider.com>
  */
 class ScrubableBehavior extends ModelBehavior {

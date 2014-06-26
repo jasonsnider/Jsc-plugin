@@ -10,7 +10,7 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @link https://jasonsnider.com
  */
-App::uses('Scrub', 'Utilities.Lib');
+App::uses('Scrub', 'Jsc.Lib');
 App::uses('Sanitize', 'Utility');
 
 /**
