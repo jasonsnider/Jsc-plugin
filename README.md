@@ -1,6 +1,6 @@
-# CakePHP Utilities Plugin
+# CakePHP JSC Plugin
 
-Provides some core utilities for JSC.
+Provides some core utilities for jasonsnider.com
 
 Dependencies 
 

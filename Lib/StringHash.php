@@ -25,13 +25,13 @@ App::uses('String', 'Utility');
  */
 class StringHash {
 
-    /**
-     * Creates a hash that represents a users password.
-     * 
-     * @param string $password The string the user has submitted as their password.
-     * @param string $salt The users unique salt value.
-     * @return string
-     */
+/**
+ * Creates a hash that represents a users password.
+ * 
+ * @param string $password The string the user has submitted as their password.
+ * @param string $salt The users unique salt value.
+ * @return string
+ */
     public static function password($password, $salt) {
 
         $preHash = Configure::read('Security.salt');

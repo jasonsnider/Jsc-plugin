@@ -25,21 +25,16 @@ App::uses('String', 'Utility');
  */
 class Random {
 	
-	/**
-	 * Inititalizes the class
-	 */
-	public function __construct() {}
-
-    /**
-     * Generates a random string of a specified length and character set
-     * @param integer $length The length of the string
-     * @param boolean $upper Add the A-Z character set
-     * @param boolean $lower Add the a-z character set
-     * @param boolean $numeric Add the numeric character set
-     * @param boolean $special Add the special character set
-     * @param boolean $disambiguate Removes potentially ambiguous characters from the alphabets
-     * @return string
-     */
+/**
+ * Generates a random string of a specified length and character set
+ * @param integer $length The length of the string
+ * @param boolean $upper Add the A-Z character set
+ * @param boolean $lower Add the a-z character set
+ * @param boolean $numeric Add the numeric character set
+ * @param boolean $special Add the special character set
+ * @param boolean $disambiguate Removes potentially ambiguous characters from the alphabets
+ * @return string
+ */
     private static function __randomizer($length, $upper, $lower, $numeric, $special, $disambiguate) {
 
         $characters = '';
@@ -70,30 +65,30 @@ class Random {
         return $string;
     }
 
-    /**
-     * Returns a random string matching the input requirements. These requirements may consist of custom or predefined
-     * types
-     * 
-     * Predefined Random String Types
-     * 
-     * - CAKE_CIPHER returns a CakePHP cipher string 
-     * - CAKE_SALT returns a CakePHP salt string 
-     * 
-     * Custom Random String Types
-     * Passing a string consiting of any of the following characters. For example Utility::random('ul', 10); will
-     * return a 10 character string containing upper and lower case letters.
-     * 
-     * - u Calls the uppercase character set
-     * - l Calls the lowercase character set
-     * - n Calls the numeric character set
-     * - s Calls the special character set
-     * - d Disambiguate all character sets
-     * 
-     * @param integer|string $arg1 This can be either the `length` of the string or the `type`
-     * @param integer|string $arg2 This can be either the `length` of the string or the `type`
-     * 
-     * @return string
-     */
+/**
+ * Returns a random string matching the input requirements. These requirements may consist of custom or predefined
+ * types
+ * 
+ * Predefined Random String Types
+ * 
+ * - CAKE_CIPHER returns a CakePHP cipher string 
+ * - CAKE_SALT returns a CakePHP salt string 
+ * 
+ * Custom Random String Types
+ * Passing a string consiting of any of the following characters. For example Utility::random('ul', 10); will
+ * return a 10 character string containing upper and lower case letters.
+ * 
+ * - u Calls the uppercase character set
+ * - l Calls the lowercase character set
+ * - n Calls the numeric character set
+ * - s Calls the special character set
+ * - d Disambiguate all character sets
+ * 
+ * @param integer|string $arg1 This can be either the `length` of the string or the `type`
+ * @param integer|string $arg2 This can be either the `length` of the string or the `type`
+ * 
+ * @return string
+ */
     public static function random($arg1 = null, $arg2 = null) {
 
         $length = null;
@@ -148,11 +143,11 @@ class Random {
         }
     }
 
-    /**
-     * Creates some pseudo random jibberish to be used as a salt value.
-     * 
-     * @return string
-     */
+/**
+ * Creates some pseudo random jibberish to be used as a salt value.
+ * 
+ * @return string
+ */
     public static function makeSalt() {
         $seed = openssl_random_pseudo_bytes(4096);
         $seed .= String::uuid();
@@ -173,15 +168,15 @@ class Random {
         return $salt;
     }
 	
-	/**
-	 * Generates a  version 4 compliant psuedo-random UUID.
-	 * 
-	 * @link http://www.php.net/manual/en/function.uniqid.php#88023
-	 * @see http://tools.ietf.org/html/rfc4122#section-4.4
-	 * @see http://en.wikipedia.org/wiki/UUID
-	 *
-	 * @return string A UUID, made up of 32 hex digits and 4 hyphens.
-	 */
+/**
+ * Generates a  version 4 compliant psuedo-random UUID.
+ * 
+ * @link http://www.php.net/manual/en/function.uniqid.php#88023
+ * @see http://tools.ietf.org/html/rfc4122#section-4.4
+ * @see http://en.wikipedia.org/wiki/UUID
+ *
+ * @return string A UUID, made up of 32 hex digits and 4 hyphens.
+ */
 	public static function uuid() {
         
 		$pr_bits = null;

@@ -30,11 +30,11 @@ class HasFormat {
 	 */
 	public function __construct() {}
     
-    /**
-     * Returns true if a given string is a uuid
-     * @param string $string
-     * @return boolean
-     */
+/**
+ * Returns true if a given string is a uuid
+ * @param string $string
+ * @return boolean
+ */
     public static function uuid($string){
         if (eregi("^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$", $string)) {
             return true;

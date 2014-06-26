@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2011-2013, Jason D Snider (https://jasonsnider.com)
+ * Copyright 2011-2014, Jason D Snider (https://jasonsnider.com)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
@@ -24,11 +24,11 @@ App::import(
  */
 class Scrub {
 
-    /**
-     * Purifies, creates html and fixes broken HTML
-     * @param string $value
-     * @return string
-     */
+/**
+ * Purifies, creates html and fixes broken HTML
+ * @param string $value
+ * @return string
+ */
     public static function html($value) {
         $HTMLPurifier = new HTMLPurifier();
 
@@ -53,13 +53,13 @@ class Scrub {
         return $HTMLPurifier->purify($value, $config);
     }
 
-    /**
-     * Purifies, creates html and fixes broken HTML while allowing iFrames
-     * Purity and security are both decreased, but it's good for media sites.
-     * I'd only reccomend this for use by trusted users.
-     * @param string $value
-     * @return string
-     */
+/**
+ * Purifies, creates html and fixes broken HTML while allowing iFrames
+ * Purity and security are both decreased, but it's good for media sites.
+ * I'd only reccomend this for use by trusted users.
+ * @param string $value
+ * @return string
+ */
     public static function htmlMedia($value) {
         $HTMLPurifier = new HTMLPurifier();
 
@@ -89,12 +89,12 @@ class Scrub {
         return $HTMLPurifier->purify($value, $config);
     }
 
-    /**
-     * Purifies, creates html and fixes broken HTML and removes unwanted crap
-     * A less permissive version of self::html(), recommended for public facing WYSIWYG editors and content
-     * @param string $value
-     * @return string
-     */
+/**
+ * Purifies, creates html and fixes broken HTML and removes unwanted crap
+ * A less permissive version of self::html(), recommended for public facing WYSIWYG editors and content
+ * @param string $value
+ * @return string
+ */
     public static function htmlStrict($value) {
         $HTMLPurifier = new HTMLPurifier();
 
@@ -123,11 +123,11 @@ class Scrub {
         return $HTMLPurifier->purify($value, $config);
     }
 
-    /**
-     * Purifies plain text and fixes broken HTML
-     * @param string $value
-     * @return string
-     */
+/**
+ * Purifies plain text and fixes broken HTML
+ * @param string $value
+ * @return string
+ */
     public static function safe($value) {
         $HTMLPurifier = new HTMLPurifier();
 
@@ -141,11 +141,11 @@ class Scrub {
         return $HTMLPurifier->purify($value, $config);
     }
 
-    /**
-     * Purifies plain text and strips all HTML and tags
-     * @param string $value
-     * @return string
-     */
+/**
+ * Purifies plain text and strips all HTML and tags
+ * @param string $value
+ * @return string
+ */
     public static function noHTML($value) {
         $HTMLPurifier = new HTMLPurifier();
 
@@ -168,13 +168,13 @@ class Scrub {
         return $purify;
     }
 
-    /**
-     * Given a phone number string which could consist of non-numeric characters and 1 preceeding 1, convert it to
-     * a 10 digit numeric phone number
-     *
-     * @param string $phoneNumber Input phone number string
-     * @return string
-     */
+/**
+ * Given a phone number string which could consist of non-numeric characters and 1 preceeding 1, convert it to
+ * a 10 digit numeric phone number
+ *
+ * @param string $phoneNumber Input phone number string
+ * @return string
+ */
     public static function phoneNumber($phoneNumber) {
         //Strip all non-numeric data from the string
         $phoneNumber = preg_replace('/[^\d]/', '', $phoneNumber);
@@ -190,12 +190,12 @@ class Scrub {
         return $phoneNumber;
     }
 
-    /**
-     * A wrapper fo strtolower()
-     *
-     * @param string $string Input phone number string
-     * @return string
-     */
+/**
+ * A wrapper fo strtolower()
+ *
+ * @param string $string Input phone number string
+ * @return string
+ */
     public static function lower($string) {
 
         return strtolower($string);

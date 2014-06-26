@@ -1,7 +1,7 @@
 <?php
 /**
  * This behavior provides "Cake Magic" type of access to htmlpurifier
- * Copyright 2011-2013, Jason D Snider (https://jasonsnider.com)
+ * Copyright 2011-2014, Jason D Snider (https://jasonsnider.com)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
@@ -20,12 +20,12 @@ App::uses('Sanitize', 'Utility');
  */
 class ScrubableBehavior extends ModelBehavior {
 
-    /**
-     * Execute after __constructor
-     * @param object $model
-     * @param array $settings
-     * @access public
-     */
+/**
+ * Execute after __constructor
+ * @param object $model
+ * @param array $settings
+ * @access public
+ */
     public function setup(Model $model, $settings = array()) {
         if (!is_array($settings)) {
             $settings = array();
@@ -34,12 +34,12 @@ class ScrubableBehavior extends ModelBehavior {
         $this->settings[$model->name] = $settings;
     }
 
-    /**
-     * Pre-save data manipulation
-     * @param object $model
-     * @param array $options
-     * @access public
-     */
+/**
+ * Pre-save data manipulation
+ * @param object $model
+ * @param array $options
+ * @return boolean
+ */
     public function beforeSave(Model $model, $options = array()) {
 
         //Determine which filters are requested and against what fields
@@ -76,74 +76,74 @@ class ScrubableBehavior extends ModelBehavior {
         return true;
     }
 
-    /**
-     * A wrapper method for trim()
-     * @param string $value
-     * @return string
-     */
+/**
+ * A wrapper method for trim()
+ * @param string $value
+ * @return string
+ */
     public function trim($value) {
         return trim($value);
     }
 
-    /**
-     * A wrapper for Scrub.html
-     * @param string $value
-     * @return string
-     */
+/**
+ * A wrapper for Scrub.html
+ * @param string $value
+ * @return string
+ */
     public function html($value) {
         return Scrub::html($value);
     }
 
-    /**
-     * A wrapper for Scrub.htmlMedia
-     * @param string $value
-     * @return string
-     */
+/**
+ * A wrapper for Scrub.htmlMedia
+ * @param string $value
+ * @return string
+ */
     public function htmlMedia($value) {
         return Scrub::htmlMedia($value);
     }
 
-    /**
-     * A wrapper for Scrub.htmlStrict
-     * @param string $value
-     * @return string
-     */
+/**
+ * A wrapper for Scrub.htmlStrict
+ * @param string $value
+ * @return string
+ */
     public function htmlStrict($value) {
         return Scrub::htmlStrict($value);
     }
 
-    /**
-     * A wrapper for Scrub.safe
-     * @param string $value
-     * @return string
-     */
+/**
+ * A wrapper for Scrub.safe
+ * @param string $value
+ * @return string
+ */
     public function safe($value) {
         return Scrub::safe($value);
     }
 
-    /**
-     * A wrapper for Scrub.noHTML
-     * @param string $value
-     * @return string
-     */
+/**
+ * A wrapper for Scrub.noHTML
+ * @param string $value
+ * @return string
+ */
     public function noHTML($value) {
         return Scrub::noHTML($value);
     }
 
-    /**
-     * A wrapper for Scrub.phoneNumber
-     * @param string $value
-     * @return string
-     */
+/**
+ * A wrapper for Scrub.phoneNumber
+ * @param string $value
+ * @return string
+ */
     public function phoneNumber($value) {
         return Scrub::phoneNumber($value);
     }
 
-    /**
-     * A wrapper for Scrub.lower()
-     * @param string $value
-     * @return string
-     */
+/**
+ * A wrapper for Scrub.lower()
+ * @param string $value
+ * @return string
+ */
     public function lower($value) {
         return Scrub::lower($value);
     }
