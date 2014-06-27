@@ -24,7 +24,13 @@ App::uses('String', 'Utility');
  * @package Jsc
  */
 class Random {
-	
+
+/**
+ * Inititalizes the class
+ * While empty, declaring this prevents "Error: Constructor Random::random() cannot be static"
+ */
+	public function __construct() {}
+
 /**
  * Generates a random string of a specified length and character set
  * @param integer $length The length of the string

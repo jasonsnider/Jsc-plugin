@@ -2,7 +2,7 @@
 /**
  * Application Controller
  */
-App::uses('Controller', 'Controller');
+App::uses('AppController', 'Controller');
 
 /**
  * Application Controller
