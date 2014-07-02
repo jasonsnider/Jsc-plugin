@@ -46,9 +46,10 @@ class JscAppController extends AppController {
             )
         ),
 		'Contents.Meta',
-        'Users.Authorize',
+		'Paginator',
         'Security',
-        'Session'
+        'Session',
+		'Users.Authorize'
     );
     
 /**
