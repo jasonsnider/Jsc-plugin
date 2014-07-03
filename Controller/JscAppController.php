@@ -69,7 +69,14 @@ class JscAppController extends AppController {
  */
     public function beforeRender() {
         parent::beforeRender();
-		$this->set('model', isset($this->viewVars['content'])?model($this->viewVars['content']):null);
+		
+		$title_for_layout = isset($this->request->title)?$this->request->title:$this->viewVars['title_for_layout'];
+		$model = isset($this->viewVars['content'])?model($this->viewVars['content']):null;
+		
+		$this->set(compact(
+			'model',
+			'title_for_layout'
+		));
     }
 	
 /**
