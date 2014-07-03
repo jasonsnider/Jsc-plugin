@@ -69,6 +69,7 @@ class JscAppController extends AppController {
  */
     public function beforeRender() {
         parent::beforeRender();
+		$this->set('model', isset($this->viewVars['content'])?model($this->viewVars['content']):null);
     }
 	
 /**
