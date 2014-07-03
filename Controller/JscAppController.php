@@ -70,13 +70,13 @@ class JscAppController extends AppController {
     public function beforeRender() {
         parent::beforeRender();
 		
-		$title_for_layout = isset($this->request->title)?$this->request->title:$this->viewVars['title_for_layout'];
+		if(isset($this->request->title)){
+			$this->set('title_for_layout', $this->request->title);
+		}
+		
 		$model = isset($this->viewVars['content'])?model($this->viewVars['content']):null;
 		
-		$this->set(compact(
-			'model',
-			'title_for_layout'
-		));
+		$this->set(compact('model'));
     }
 	
 /**
