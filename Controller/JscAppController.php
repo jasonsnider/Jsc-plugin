@@ -51,7 +51,12 @@ class JscAppController extends AppController {
         'Session',
 		'Users.Authorize'
     );
-    
+	
+	public $uses = array(
+		'Contents.Category',
+		'Contents.Content'
+	);
+	
 /**
  * Executes logic prior to the execution of the invoked action.
  * Sets the theme to the value specified by the Configure class
@@ -74,9 +79,64 @@ class JscAppController extends AppController {
 			$this->set('title_for_layout', $this->request->title);
 		}
 		
+		//Sets $Model for use in the views
 		$model = isset($this->viewVars['content'])?model($this->viewVars['content']):null;
 		
-		$this->set(compact('model'));
+		///// Begin widget and sidebar data ///// 
+		$categories = array();
+		$relatedContent = array();
+		$recentContent = array();
+		
+		$widgets = Configure::read('JSC.Widgets.Sidebar');
+		$categoryWidget = Set::extract('Category', $widgets);
+		$relatedContentWidget = Set::extract('RelatedContent', $widgets);
+		$recentContentWidget = Set::extract('RecentContent', $widgets);
+
+		if(!empty($categoryWidget)){
+			if(isset($categoryWidget[$this->request->controller])){
+				if(in_array($this->request->action, $categoryWidget[$this->request->controller])){
+					$categories = $this->Category->find('list', array('Category.active'=>1));
+				}
+			}
+		}
+		
+		if(!empty($relatedContentWidget)){
+			if(isset($relatedContentWidget[$this->request->controller])){
+				if(in_array($this->request->action, $relatedContentWidget[$this->request->controller])){
+				$relatedContent = $this->Content->listContentsByCategory(
+						$this->request->categoryId,
+						Configure::read('JSC.Posts.Related.limit'),
+						Configure::read('JSC.Posts.Related.model')
+					);
+				}
+			}
+		}
+		
+		if(!empty($recentContentWidget)){
+			if(isset($recentContentWidget[$this->request->controller])){
+				if(in_array($this->request->action, $recentContentWidget[$this->request->controller])){
+					$recentContent = $this->Content->find(
+						'all',
+						array(
+							'conditions'=>array(
+								'Content.content_status'=>'published'
+							),
+							'order'=>'Content.created DESC',
+							'limit'=>Configure::read('JSC.Posts.Related.limit'),
+							'contain'=>array()
+						)
+					);		
+				}
+			}
+		}
+		///// End widget and sidebar data ///// 
+		
+		$this->set(compact(
+			'categories', 
+			'model',
+			'recentContent',
+			'relatedContent'
+		));
     }
 	
 /**
