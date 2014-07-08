@@ -49,16 +49,7 @@ class Scrub {
 
         //Autolink text based links into html tags
         $config->set('AutoFormat.Linkify', true);
-
-		////// Begin Twitter Bootstrap Exceptions //////
-		$config->set('Attr.EnableID', true);
-		$def = $config->getHTMLDefinition(true);
-		
-		$def->addAttribute('a', 'data-toggle', new HTMLPurifier_AttrDef_Enum(
-		  array('collapse')
-		));
-		////// End Twitter Bootstrap Exceptions //////
-		
+	
         return $HTMLPurifier->purify($value, $config);
     }
 
@@ -93,8 +84,16 @@ class Scrub {
 
         //Allow iframes for YouTube and such
         $config->set('HTML.SafeIframe', true);
-        $config->set('URI.SafeIframeRegexp', "%^https://(www.youtube.com/embed/|player.vimeo.com/video/)%");
-
+        $config->set('URI.SafeIframeRegexp', "%^//(www.youtube.com/embed/|player.vimeo.com/video/)%");
+		
+		////// Begin Twitter Bootstrap Exceptions //////
+		$config->set('Attr.EnableID', true);
+		$def = $config->getHTMLDefinition(true);
+		
+		$def->addAttribute('a', 'data-toggle', new HTMLPurifier_AttrDef_Enum(
+		  array('collapse')
+		));
+		////// End Twitter Bootstrap Exceptions //////
         return $HTMLPurifier->purify($value, $config);
     }
 
@@ -128,7 +127,7 @@ class Scrub {
         $config->set('AutoFormat.Linkify', true);
 
         $config->set('HTML.AllowedAttributes', array('src', 'href', 'title', 'alt'));
-
+		
         return $HTMLPurifier->purify($value, $config);
     }
 
