@@ -50,6 +50,15 @@ class Scrub {
         //Autolink text based links into html tags
         $config->set('AutoFormat.Linkify', true);
 
+		////// Begin Twitter Bootstrap Exceptions //////
+		$config->set('Attr.EnableID', true);
+		$def = $config->getHTMLDefinition(true);
+		
+		$def->addAttribute('a', 'data-toggle', new HTMLPurifier_AttrDef_Enum(
+		  array('collapse')
+		));
+		////// End Twitter Bootstrap Exceptions //////
+		
         return $HTMLPurifier->purify($value, $config);
     }
 
