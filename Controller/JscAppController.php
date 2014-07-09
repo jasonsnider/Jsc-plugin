@@ -99,14 +99,14 @@ class JscAppController extends AppController {
 				}
 			}
 		}
-		
+
 		if(!empty($relatedContentWidget)){
 			if(isset($relatedContentWidget[$this->request->controller])){
 				if(in_array($this->request->action, $relatedContentWidget[$this->request->controller])){
 				$widgetRelatedContent = $this->Content->listContentsByCategory(
 						$this->request->categoryId,
-						Configure::read('JSC.Posts.Related.limit'),
-						Configure::read('JSC.Posts.Related.model')
+						Configure::read('JSC.Content.Related.limit'),
+						Configure::read('JSC.Content.Related.model')
 					);
 				}
 			}
