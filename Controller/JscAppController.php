@@ -122,7 +122,7 @@ class JscAppController extends AppController {
 								'Content.content_status'=>'published'
 							),
 							'order'=>'Content.created DESC',
-							'limit'=>Configure::read('JSC.Posts.Related.limit'),
+							'limit'=>Configure::read('JSC.Content.Related.limit'),
 							'contain'=>array()
 						)
 					);		
