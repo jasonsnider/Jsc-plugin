@@ -31,6 +31,14 @@ class ScrubableBehavior extends ModelBehavior {
             $settings = array();
         }
 
+		$override = Configure::read("Jsc.Scrubable.{$model->name}");
+		if(!empty($override)){
+			$settings['Filters'] = array_merge(
+				$settings['Filters'], 
+				Configure::read("Jsc.Scrubable.{$model->name}")
+			);
+		}
+		
         $this->settings[$model->name] = $settings;
     }
 
@@ -41,16 +49,7 @@ class ScrubableBehavior extends ModelBehavior {
  * @return boolean
  */
     public function beforeSave(Model $model, $options = array()) {
-		
-		$override = Configure::read("Jsc.Scrubable.{$model->name}");
-		if(!empty($override)){
-			$this->settings[$model->name]['Filters'] = array_merge(
-				$this->settings[$model->name]['Filters'], 
-				Configure::read("Jsc.Scrubable.{$model->name}")
-			);
-		}
-
-		
+				
         //Determine which filters are requested and against what fields
         //Then build a filter map
         foreach ($this->settings[$model->name]['Filters'] as $key => $value) {
