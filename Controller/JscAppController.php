@@ -92,14 +92,21 @@ class JscAppController extends AppController {
 		$relatedContentWidget = Set::extract('RelatedContent', $widgets);
 		$recentContentWidget = Set::extract('RecentContent', $widgets);
 
+		//Categories
 		if(!empty($categoryWidget)){
 			if(isset($categoryWidget[$this->request->controller])){
 				if(in_array($this->request->action, $categoryWidget[$this->request->controller])){
-					$widgetCategories = $this->Category->find('list', array('Category.active'=>1));
+					$widgetCategories = $this->Category->find(
+						'list', 
+						array(
+							'Category.active'=>1
+						)
+					);
 				}
 			}
 		}
 
+		//RELETED
 		if(!empty($relatedContentWidget)){
 			if(isset($relatedContentWidget[$this->request->controller])){
 				if(in_array($this->request->action, $relatedContentWidget[$this->request->controller])){
@@ -112,6 +119,7 @@ class JscAppController extends AppController {
 			}
 		}
 		
+		//RECENT
 		if(!empty($recentContentWidget)){
 			if(isset($recentContentWidget[$this->request->controller])){
 				if(in_array($this->request->action, $recentContentWidget[$this->request->controller])){
