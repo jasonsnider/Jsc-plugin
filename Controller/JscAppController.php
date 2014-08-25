@@ -99,7 +99,9 @@ class JscAppController extends AppController {
 					$widgetCategories = $this->Category->find(
 						'list', 
 						array(
-							'Category.active'=>1
+							'conditions'=>array(
+								'Category.active'=>1
+							)
 						)
 					);
 				}
